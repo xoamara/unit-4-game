@@ -22,46 +22,53 @@ function gameReset() {
 // Random computer guess logic and display, between 19 and 120.
 
 function getRandomIntInclusive(min, max) {
-    min = Math.ceil(120);
-    max = Math.floor(19);
+    min = Math.ceil(min);
+    max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
 
-targetNumber = getRandomIntInclusive();
-getRandomIntInclusive();
+function softReset() {
 
-$("#targetNumber").text(targetNumber);
+    targetNumber = getRandomIntInclusive(19, 120);
 
-//4 random numbers generated at the start of the game to the images, between 1 - 12
+    $("#targetNumber").text(targetNumber);
 
-let numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-for (var i = 0; i < numberOptions.length; i++) {
-    let imageCrystal = $("<img>");
-    imageCrystal.addClass("crystal-image");
-    imageCrystal.attr("data-crystalvalue", numberOptions[i]);
-    $("#crystals").append(imageCrystal);
-
+    for (var i = 0; i < 4; i++) {
+        var imageCrystal = $("<img>");
+        imageCrystal.addClass("crystal-image-" + i);
+        imageCrystal.attr("src", "assets/images/crystal-" + i + ".png");
+        imageCrystal.attr("data-crystalvalue", getRandomIntInclusive(1, 12));
+        $("#crystals").append(imageCrystal);
+    }
 }
 
-$(".crystal-image").on("click", function() {
-    let crystalValue = ($(this).attr("data-crystalvalue"));
-    crystalValue = parseInt(crystalValue);
-    counterTotal += crystalValue;
-    console.log("I've been clicked")
+softReset()
 
-});
+    $("img").on("click", function () {
+        let crystalValue = ($(this).attr("data-crystalvalue"));
+        crystalValue = parseInt(crystalValue);
+        counterTotal += crystalValue;
+        $("#counter").text(counterTotal);
 
+        if (counterTotal === targetNumber) {
+            wins++;
+            $("#crystals").empty();
+        }
 
+        if (counterTotal >= targetNumber) {
+            losses++;
+            $("#crystals").empty();
+        }
 
+        $("#wins").text("Wins: " + wins);
+        $("#losses").text("Losses: " + losses);
 
+    });
 
-
-//4 random numbers generated at the start of the game to the images, between 1 - 12
 
 // Wins and losses counter and display
 
-//Cumulative score based on button clicks with display
 
 //When button clicked
     //display score and add additional clicks together
