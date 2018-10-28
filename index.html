@@ -8,31 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Philosopher" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script defer type="text/javascript" src="assets/javascript/game.js"></script>
 
 </head>
 
-<body>
+<body background="assets/images/background.png">
 
 
     <div class="jumbotron bg-transparent mb-0 radius-0">
         <div class="container">
             <div class="row">
-                <div class="col-xl-8">
-                    <h1 class="display-3">Crystal Collector<span class="vim-caret"></span></h1>
+                <div class="col-xl-10">
+                    <h1 class="display-3">The Crystal Collector<span class="vim-caret"></span></h1>
                     <div class="lead mb-3 text-mono text-success">
 
-                        <p class="lead mb-3 text-mono text-success">
+                        <p class="lead mb-3 text-mono text-primary">
                             You will be given a random number at the start of
                             the game. When you click on the crystals individually it adds to your total score.
                         </p>
-                        <p class="lead mb-3 text-mono text-success">
+                        <p class="lead mb-3 text-mono text-primary">
                             You win the game by matching your total score to the random number. You lose the game if
                             your score exceeds the random number.
                         </p>
-                        <p class="lead mb-3 text-mono text-success">The value of each crystal is hidden from you until
+                        <p class="lead mb-3 text-mono text-primary">The value of each crystal is hidden from you until
                             you click on it. When you restart the game the value of the crystals change.
                         </p>
                     </div>
@@ -70,7 +71,7 @@
 
         <div class="row">
             <div class="card mb-3 d-inline-block" style="max-width: 20rem;">
-                <div class="card-header card-title">Your total score is:</div>
+                <div class="card-header card-title"><h5>Your total score is:</h5></div>
                 <div class="card-body">
                     <h4 class="card-title" id="counter"></h4>
                 </div>
