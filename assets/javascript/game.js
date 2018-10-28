@@ -1,23 +1,12 @@
 // Title and instruction box - static content/
-
+$("document").ready(function() {
 //set variables 
 
 let targetNumber = 0;
 let counterTotal = 0;
 let wins = 0;
 let losses = 0;
-let softReset = true;
 
-//make a reset function
-
-function gameReset() {
-    targetNumber = "";
-    counterTotal = "";
-    wins = 0;
-    losses = 0;
-
-    $("#targetNumber", "#counter").emtpy();
-}
 
 // Random computer guess logic and display, between 19 and 120.
 
@@ -27,15 +16,21 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
 
+function softReset() {
     for (var i = 0; i < 4; i++) {
         var imageCrystal = $(".crystal-image-" +i);
         imageCrystal.attr("data-crystalvalue", getRandomIntInclusive(1, 12));
         $("#crystals").append(imageCrystal);
     }
-    
+    counterTotal=0;
     targetNumber = getRandomIntInclusive(19, 120);
     $("#targetNumber").text(targetNumber);
+    $("#counter").text(counterTotal); 
+    console.log(counterTotal);
 
+}
+
+softReset();
 
     $("img").on("click", function () {
         let crystalValue = ($(this).attr("data-crystalvalue"));
@@ -45,10 +40,14 @@ function getRandomIntInclusive(min, max) {
 
         if (counterTotal === targetNumber) {
             wins++;
+            alert("You Won!");
+            softReset();
         }
 
-        if (counterTotal >= targetNumber) {
+        if (counterTotal > targetNumber) {
             losses++;
+            alert("You Lost!");
+            softReset();
         }
 
         $("#wins").text("Wins: " + wins);
@@ -56,9 +55,7 @@ function getRandomIntInclusive(min, max) {
     });
 
 
-
-
-    
+});
 
 
 
