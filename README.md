@@ -1,10 +1,10 @@
-# unit-4-game Overview
+# unit-4-game The Crystal Collector
 
 This is a front-end application the uses HTML5, CSS, JavaScript and jQuery. This particular project highlights using jQuery to dynamically update the HTML. 
 
 # Additional Features
 
-The page was built using Bootstrap for responsiveness. This application contains alerts to put a clear break while the numbers reset dynamically. 
+The page was built using Bootstrap for responsiveness. This application contains alerts to put a clear break while the numbers reset dynamically. Google Fonts added for aesthetics.
 
 # How to play
 
